@@ -19,12 +19,12 @@ To run this project, follow the steps below:
 
 2. **Install Dependencies:**
    ```bash
-   pip install -r [requirements.txt](./requirements.txt)
+   pip install -r requirements.txt
    ```
 
 3. **Run the Code:**
    ```bash
-   python [temp_TimeSeries_script.ipynb](./tempTimeSeries_script.ipynb)
+   python temp_TimeSeries_script.ipynb
    ```
 
 ### 1. Data Cleaning
