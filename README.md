@@ -13,9 +13,8 @@ To run this project, follow the steps below:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/daily-min-temperature-prediction.git
-   cd daily-min-temperature-prediction
-   ```
+   git clone https://github.com/annus3/Time-Series-Analysis-on-Daily-Minumum-Temperature
+      ```
 
 2. **Install Dependencies:**
    ```bash
