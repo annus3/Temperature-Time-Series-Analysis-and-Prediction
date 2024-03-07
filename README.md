@@ -19,58 +19,67 @@ To run this project, follow the steps below:
 
 2. **Install Dependencies:**
    ```bash
-   pip install -r requirements.txt
+   pip install -r [requirements.txt](./requirements.txt)
    ```
 
 3. **Run the Code:**
    ```bash
-   python temp_TimeSeries_script.ipynb
+   python [temp_TimeSeries_script.ipynb](./tempTimeSeries_script.ipynb)
    ```
 
 ### 1. Data Cleaning
-- Exploration of data structure and overview.
+- The dataset is loaded, and initial exploratory data analysis is performed.
 - Identification and handling of missing values.
 - Parsing date information into day, week, month, and season.
+- Basic statistics of the dataset are presented.
 - Renaming columns for clarity.
-- Creation of a 'season' column based on months.
+- A function (get_season) is defined to map months to seasons.
+- Additional columns for 'season' and other time-related features are created.
 
 ### 2. Data Visualization
-- Utilization of Seaborn and Matplotlib for visualizing temperature distribution and detecting outliers.
-- Identification of outliers based on average temperatures over time.
+- Seaborn and Matplotlib are used for visualizing temperature distribution and detecting outliers.
+- Boxplot is employed to identify outliers based on average temperatures 'min_temp' across different time intervals (season, month, week, day, year).
 - Removal of outliers where minimum temperature exceeds 20°C.
 - Seasonal, monthly, weekly, daily, and yearly analysis of temperature variations.
 
 ### 3. Augmented Dickey-Fuller (ADF) Test
-- Verification of time series stationarity.
-- Rolling window analysis to assess mean and variance stability.
-- ADF test results indicating stationarity.
+- ADF test is performed to check for stationarity in the time series.
+- Time series data is plotted over time, and rolling mean/variance are calculated and visualized.
 
-### 4. Autocorrelation and Partial Autocorrelation Analysis
-- Examination of autocorrelation and partial autocorrelation functions to determine ARIMA parameters (p and q).
+### 4. Autocorrelation Function (ACF) and Partial Autocorrelation Function (PACF) Plot
+- Examination of autocorrelation and partial autocorrelation functions/plots are generated to determine parameters (p ,d, and q) for ARIMA model.
 
 ### 5. Time Series Decomposition
-- Decomposition of time series into trend, seasonality, and residuals.
-- Assessment of autocorrelation of residuals.
+- The time series is decomposed into trend, season, and error components using the seasonal decomposition of time series (STL) method.
+- Autocorrelation of residuals is visualized.
 
 ### 6. Non-seasonal ARIMA Modeling
-- Application of auto ARIMA model without seasonality.
-- Evaluation of model performance and visualization of results.
+- Auto ARIMA is applied without seasonality to the training data.
+- Model diagnostics are plotted.
+- Root Mean Squared Error (RMSE) is calculated and used to evaluate the model on training and test sets.
 
 ### 7. Seasonal ARIMA Modeling
 - Application of auto ARIMA model with seasonality.
 - Comparative analysis with non-seasonal ARIMA.
+- Model diagnostics, RMSE, and model summary are displayed.
+- Model performance is evaluated on the test set.
 
 ### 8. Prophet Modeling
-- Utilization of the Prophet model for time series prediction.
+- Prophet, a forecasting tool, is used to predict 'min_temp' for time series prediction.
+- The dataset is reformatted for Prophet, and the model is trained.
+- Predictions are made on the test set, and RMSE is calculated.
 - Comparison of results with ARIMA models.
 
 ### 9. Cyclical Encoding
-- Utilization of sine and cosine functions for cyclical encoding of days, weeks, months, and seasons.
+- Days, weeks, months, and seasons are cyclically encoded using sine and cosine functions.
 
 ### 10. Long Short-Term Memory (LSTM) Modeling
-- Implementation of LSTM neural network for time series prediction.
-- Training and evaluation of the model using 365 previous days to predict the next day.
+- Long Short-Term Memory (LSTM) neural network is implemented for time series prediction.
+- LSTM model architecture is defined and trained on the training set.
+- Training and evaluation of the model is done based on 365 previous days to predict the next day.
+- Data is prepared in sequences.
+- Predictions are made for both the training and test sets, and RMSE is calculated.
 
-### Conclusion
-The project concludes by comparing the performance of different models. The LSTM model is identified as the most effective for this dataset, capturing the strong seasonal component in temperature variations. However, Prophet is acknowledged as a resource-efficient alternative in scenarios with limited computational resources.
+## Conclusion
+The project concludes by comparing the performance of different models. The code provides a thorough exploration of time series analysis, including data preprocessing, visualization, statistical testing, and modeling with various techniques. The LSTM model is identified as the best-performing model for this dataset, capturing the strong seasonal component in temperature variations. However, Prophet is considered a good alternative, especially in resource-limited scenarios.
 
